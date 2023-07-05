@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Google Trends Search</h2>
+
+<button onclick="fetchTrends()">Fetch Trends</button>
+
+<p id="output"></p>
+
+<script>
+function fetchTrends() {
+  fetch('/trends', {method: 'POST'})
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+  });
+}
+</script>
+
+</body>
+</html>
